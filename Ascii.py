@@ -4,9 +4,6 @@ import time
 import numpy as np
 
 def convert_frame_to_ascii(frame, width=80):
-    """
-    Convert a frame to ASCII art using a character set based on brightness
-    """
 
     ascii_chars = " .:-=+*#%@"
     
@@ -33,9 +30,6 @@ def convert_frame_to_ascii(frame, width=80):
     return ascii_frame
 
 def play_video_in_terminal(video_path, width=80, fps=30):
-    """
-    Play Ser Harwin Strong a video in the terminal using ASCII characters
-    """
     if not os.path.exists(video_path):
         print(f"Error: Video file '{video_path}' not found.")
         return
@@ -68,7 +62,6 @@ if __name__ == "__main__":
 
     video_path = input("Enter the path to the video file: ").strip()
     
-
     
     try:
         width = int(input("Enter terminal width (default 80): ") or "80")

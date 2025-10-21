@@ -21,7 +21,6 @@ def convert_frame_to_ascii(frame, width=80):
     normalized = gray_frame / 255.0
     ascii_frame = ""
     
-    
     for row in normalized:
         for pixel in row:
             index = int(pixel * (len(ascii_chars) - 1)) 

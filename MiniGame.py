@@ -11,7 +11,6 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 
 # ---------- ENTITIES ----------
-
 class Creature:
     def __init__(self, x, y, dna=None):
         self.x = x

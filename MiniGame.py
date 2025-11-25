@@ -21,3 +21,29 @@ class Creature:
         self.speed = self.dna[0] * 2 + 0.5
         self.vision = self.dna[1] * 120 + 20
         self.efficiency = self.dna[2]
+
+        def move(self):
+        angle = random.uniform(0, 2*np.pi)
+        self.x += np.cos(angle) * self.speed
+        self.y += np.sin(angle) * self.speed
+        self.energy -= 0.3 * (1 + self.speed)
+
+        self.x %= WIDTH
+        self.y %= HEIGHT
+
+    def seek_food(self, foods):
+        for food in foods:
+            dist = np.hypot(self.x - food.x, self.y - food.y)
+            if dist < self.vision:
+                dx, dy = food.x - self.x, food.y - self.y
+                mag = np.hypot(dx, dy)
+                if mag > 0:
+                    self.x += dx / mag * self.speed
+                    self.y += dy / mag * self.speed
+                break
+
+    def eat(self, foods):
+        for food in foods[:]:
+            if np.hypot(self.x - food.x, self.y - food.y) < 6:
+                self.energy += 40 * self.efficiency
+                foods.remove(food)

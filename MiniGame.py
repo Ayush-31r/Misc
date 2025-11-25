@@ -22,7 +22,7 @@ class Creature:
         self.vision = self.dna[1] * 120 + 20
         self.efficiency = self.dna[2]
 
-        def move(self):
+    def move(self):
         angle = random.uniform(0, 2*np.pi)
         self.x += np.cos(angle) * self.speed
         self.y += np.sin(angle) * self.speed
@@ -41,6 +41,7 @@ class Creature:
                     self.x += dx / mag * self.speed
                     self.y += dy / mag * self.speed
                 break
+
 
     def eat(self, foods):
         for food in foods[:]:

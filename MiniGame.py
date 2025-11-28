@@ -42,9 +42,19 @@ class Creature:
                     self.y += dy / mag * self.speed
                 break
 
-
     def eat(self, foods):
         for food in foods[:]:
             if np.hypot(self.x - food.x, self.y - food.y) < 6:
                 self.energy += 40 * self.efficiency
                 foods.remove(food)
+
+    def reproduce(self):
+        if self.energy > 160:
+            self.energy -= 60
+            child_dna = self.dna + np.random.normal(0, 0.08, size=3)
+            return Creature(self.x, self.y, np.clip(child_dna, 0, 1))
+        return None
+
+    def alive(self):
+        return self.energy > 0
+

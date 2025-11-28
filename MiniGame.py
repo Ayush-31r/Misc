@@ -57,4 +57,7 @@ class Creature:
 
     def alive(self):
         return self.energy > 0
-
+class Food:
+    def __init__(self):
+        self.x = random.randint(0, WIDTH)
+        self.y = random.randint(0, HEIGHT)

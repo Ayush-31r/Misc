@@ -69,3 +69,22 @@ creatures = [Creature(random.randint(0, WIDTH), random.randint(0, HEIGHT))
 foods = [Food() for _ in range(FOOD_COUNT)]
 
 font = pygame.font.SysFont(None, 22)
+
+def draw():
+    screen.fill((15, 15, 15))
+
+    for food in foods:
+        pygame.draw.circle(screen, (0, 200, 0), (int(food.x), int(food.y)), 3)
+
+    for c in creatures:
+        color = (
+            int(c.dna[0]*255),
+            int(c.dna[1]*255),
+            int(c.dna[2]*255)
+        )
+        pygame.draw.circle(screen, color, (int(c.x), int(c.y)), 5)
+
+    text = font.render(f"Creatures: {len(creatures)}  Food: {len(foods)}", True, (200,200,200))
+    screen.blit(text, (10, 10))
+
+    pygame.display.flip()

@@ -61,3 +61,11 @@ class Food:
     def __init__(self):
         self.x = random.randint(0, WIDTH)
         self.y = random.randint(0, HEIGHT)
+
+# ---------- SIMULATION ----------
+
+creatures = [Creature(random.randint(0, WIDTH), random.randint(0, HEIGHT))
+             for _ in range(CREATURE_COUNT)]
+foods = [Food() for _ in range(FOOD_COUNT)]
+
+font = pygame.font.SysFont(None, 22)

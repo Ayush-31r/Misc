@@ -88,3 +88,13 @@ def draw():
     screen.blit(text, (10, 10))
 
     pygame.display.flip()
+
+# ---------- MAIN LOOP ----------
+
+running = True
+while running:
+    clock.tick(60)
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False

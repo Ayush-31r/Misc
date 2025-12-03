@@ -103,3 +103,18 @@ while running:
         foods.append(Food())
 
     new_creatures = []
+    for c in creatures:
+        c.seek_food(foods)
+        c.move()
+        c.eat(foods)
+
+        baby = c.reproduce()
+        if baby:
+            new_creatures.append(baby)
+
+    creatures = [c for c in creatures if c.alive()]
+    creatures.extend(new_creatures)
+
+    draw()
+
+pygame.quit()

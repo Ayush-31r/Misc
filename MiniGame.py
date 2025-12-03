@@ -98,3 +98,8 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
+    if len(foods) < FOOD_COUNT:
+        foods.append(Food())
+
+    new_creatures = []
